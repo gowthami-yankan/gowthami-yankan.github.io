@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Gowthami Mahendran | Postdoctoral Researcher (Hydrocephalus • Multi-omics • TRPV4)</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    :root{
+      --radius: 18px;
+      --shadow: 0 16px 42px rgba(0,0,0,0.18);
+
+      --bg: #0b1220;
+      --surface: rgba(255,255,255,0.06);
+      --surface2: rgba(255,255,255,0.09);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --muted2: rgba(255,255,255,0.60);
+      --border: rgba(255,255,255,0.12);
+
+      /* Biomed/omics palette */
+      --accent: #22c55e;   /* green */
+      --accent2: #60a5fa;  /* blue */
+      --accent3: #a78bfa;  /* purple */
+      --warn: #fbbf24;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root{
+        --bg: #f8fafc;
+        --surface: rgba(2,6,23,0.04);
+        --surface2: rgba(2,6,23,0.06);
+        --text: rgba(2,6,23,0.92);
+        --muted: rgba(2,6,23,0.70);
+        --muted2: rgba(2,6,23,0.58);
+        --border: rgba(2,6,23,0.10);
+        --shadow: 0 16px 42px rgba(2,6,23,0.08);
+      }
+    }
+
+    html[data-theme="light"]{
+      --bg: #f8fafc;
+      --surface: rgba(2,6,23,0.04);
+      --surface2: rgba(2,6,23,0.06);
+      --text: rgba(2,6,23,0.92);
+      --muted: rgba(2,6,23,0.70);
+      --muted2: rgba(2,6,23,0.58);
+      --border: rgba(2,6,23,0.10);
+      --shadow: 0 16px 42px rgba(2,6,23,0.08);
+    }
+
+    html[data-theme="dark"]{
+      --bg: #0b1220;
+      --surface: rgba(255,255,255,0.06);
+      --surface2: rgba(255,255,255,0.09);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --muted2: rgba(255,255,255,0.60);
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 16px 42px rgba(0,0,0,0.18);
+    }
+
+    *{box-sizing:border-box}
+    html, body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1100px 650px at 20% 15%, rgba(96,165,250,0.22), transparent 58%),
+        radial-gradient(900px 600px at 80% 20%, rgba(34,197,94,0.18), transparent 55%),
+        radial-gradient(1000px 800px at 40% 90%, rgba(167,139,250,0.16), transparent 60%),
+        var(--bg);
+    }
+    html[data-theme="light"] body{
+      background:
+        radial-gradient(1100px 650px at 20% 15%, rgba(96,165,250,0.09), transparent 60%),
+        radial-gradient(900px 600px at 80% 20%, rgba(34,197,94,0.08), transparent 60%),
+        radial-gradient(1000px 800px at 40% 90%, rgba(167,139,250,0.07), transparent 65%),
+        var(--bg);
+    }
+
+    a{color: var(--text); text-decoration:none}
+    a:hover{opacity:0.95; text-decoration: underline}
+    .muted{color: var(--muted)}
+    .muted2{color: var(--muted2)}
+    .container{max-width:1100px; margin:0 auto; padding: 24px 18px 60px}
+
+    /* Top bar */
+    .topbar{
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(11,18,32,0.55);
+      border-bottom: 1px solid var(--border);
+    }
+    html[data-theme="light"] .topbar{background: rgba(248,250,252,0.75);}
+    .topbar-inner{
+      max-width:1100px; margin:0 auto; padding: 12px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap: 12px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800;}
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(34,197,94,0.35), rgba(96,165,250,0.30), rgba(167,139,250,0.25));
+      box-shadow: var(--shadow);
+    }
+    .nav{
+      display:flex; align-items:center; gap: 10px; flex-wrap: wrap;
+      font-size: 13px;
+    }
+    .nav a{
+      padding: 8px 10px; border-radius: 999px; border: 1px solid transparent;
+    }
+    .nav a:hover{
+      border-color: var(--border); background: var(--surface); text-decoration:none;
+    }
+    @media (max-width: 900px){ .nav{display:none;} }
+
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 13px;
+      cursor:pointer;
+      text-decoration:none;
+    }
+    .btn:hover{background: var(--surface2); text-decoration:none}
+    .btn.primary{
+      border-color: rgba(34,197,94,0.38);
+      background: rgba(34,197,94,0.16);
+    }
+    .btn.secondary{
+      border-color: rgba(96,165,250,0.38);
+      background: rgba(96,165,250,0.14);
+    }
+
+    /* Hero */
+    .hero{
+      margin-top: 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--surface2), var(--surface));
+      box-shadow: var(--shadow);
+      padding: 22px;
+      display:grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 16px;
+    }
+    @media (max-width: 900px){ .hero{grid-template-columns: 1fr;} }
+
+    .hero h1{
+      margin: 0 0 10px 0;
+      font-size: 34px;
+      line-height: 1.12;
+      letter-spacing: -0.2px;
+    }
+    .headline{
+      margin: 0 0 10px 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: 62ch;
+    }
+    .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top: 10px;}
+    .chip{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+    }
+    html[data-theme="light"] .chip{background: rgba(2,6,23,0.03)}
+    .chip.g{border-color: rgba(34,197,94,0.35); background: rgba(34,197,94,0.10); color: var(--text);}
+    .chip.b{border-color: rgba(96,165,250,0.35); background: rgba(96,165,250,0.10); color: var(--text);}
+    .chip.p{border-color: rgba(167,139,250,0.35); background: rgba(167,139,250,0.10); color: var(--text);}
+
+    .contact-card{
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--surface);
+      padding: 14px;
+    }
+    .contact-card h3{margin:0 0 10px 0; font-size: 14px}
+    .contact-item{
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 8px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    html[data-theme="light"] .contact-item{border-top-color: rgba(2,6,23,0.08)}
+    .contact-item:first-of-type{border-top:none; padding-top:0}
+    .contact-item i{color: var(--accent2); width: 18px; margin-top: 2px}
+    .contact-item .label{font-size: 12px; color: var(--muted2)}
+    .contact-item .value{font-size: 13px; font-weight: 600}
+
+    /* Sections */
+    section{margin-top: 18px;}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap: 12px;
+      margin: 22px 0 10px 0;
+    }
+    .section-title h2{margin:0; font-size: 18px;}
+    .section-title p{margin:0; color: var(--muted); font-size: 13px}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+    .card{
+      grid-column: span 12;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 16px;
+    }
+    .card:hover{background: var(--surface2)}
+    @media (min-width: 900px){
+      .span-6{grid-column: span 6;}
+      .span-4{grid-column: span 4;}
+      .span-8{grid-column: span 8;}
+    }
+    .card h3{
+      margin:0 0 10px 0;
+      font-size: 15px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .card h3 i{color: var(--accent);}
+    .card p{margin:0; color: var(--muted); line-height: 1.6; font-size: 14px}
+    .card ul{margin: 10px 0 0 18px; color: var(--muted); line-height: 1.55;}
+    .card li{margin: 6px 0;}
+
+    /* Experience timeline */
+    .role{
+      display:flex; gap: 12px; align-items:flex-start;
+      padding: 12px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    html[data-theme="light"] .role{border-top-color: rgba(2,6,23,0.08)}
+    .role:first-child{border-top:none; padding-top:0}
+    .role .when{
+      width: 190px; min-width: 190px;
+      color: var(--muted2);
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .role .what{flex:1}
+    .role .what .title{font-weight: 800; font-size: 14px; margin-bottom: 2px;}
+    .role .what .org{color: var(--muted); font-size: 13px; margin-bottom: 6px;}
+    .role .what .bullets{color: var(--muted); font-size: 13px; line-height: 1.55;}
+    .role .what .bullets ul{margin: 0 0 0 18px;}
+    @media (max-width: 720px){
+      .role{flex-direction: column;}
+      .role .when{width:auto; min-width:auto;}
+    }
+
+    /* Publications */
+    .pub{
+      display:flex; gap: 12px;
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      margin-bottom: 10px;
+    }
+    .pub:hover{background: var(--surface2);}
+    .pub .num{
+      width: 30px; min-width: 30px;
+      font-weight: 900;
+      color: var(--text);
+      text-align:center;
+      border-radius: 10px;
+      background: rgba(96,165,250,0.14);
+      border: 1px solid rgba(96,165,250,0.30);
+      padding: 6px 0;
+      height: fit-content;
+    }
+    .pub .body{flex:1;}
+    .pub .title{font-weight: 800; margin-bottom: 6px; line-height: 1.35;}
+    .pub .venue{color: var(--muted); font-size: 13px; margin-bottom: 8px;}
+    .pub .links a{
+      display:inline-flex; align-items:center; gap:8px;
+      border: 1px solid var(--border);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: rgba(255,255,255,0.03);
+      margin-right: 8px;
+    }
+    html[data-theme="light"] .pub .links a{background: rgba(2,6,23,0.03)}
+    .pub .links a:hover{background: var(--surface2); text-decoration:none;}
+    .pub .links i{color: var(--accent2);}
+
+    /* Two-column long lists */
+    .cols-2{
+      columns: 2;
+      column-gap: 18px;
+    }
+    @media (max-width: 850px){
+      .cols-2{columns: 1;}
+    }
+    .cols-2 li{break-inside: avoid;}
+
+    /* Footer */
+    footer{
+      margin-top: 20px;
+      padding: 20px 0 0 0;
+      color: var(--muted2);
+      font-size: 12px;
+    }
+
+    /* Focus ring */
+    :focus-visible{
+      outline: 3px solid rgba(96,165,250,0.55);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+    .skip{
+      position:absolute; left:-999px; top: 10px;
+      background: var(--surface2);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      z-index: 9999;
+    }
+    .skip:focus{left: 10px;}
+
+    /* Profile photo */
+    /* Circular profile photo (top bar) */
+    .profile-photo{
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    /* Circular hero photo (optional, larger) */
+    .hero-photo{
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+
+  </style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <img src="profile_pic.png" alt="Gowthami Mahendran" alt="Gowthami Mahendran" class="hero-photo">
+      <div>Gowthami Mahendran</div>
+    </div>
+
+    <div class="nav" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#research">Research</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#presentations">Presentations</a>
+      <a href="#service">Service</a>
+      <a href="#skills">Skills</a>
+    </div>
+
+    <div style="display:flex; gap:10px; align-items:center;">
+      <a class="btn secondary" href="https://linkedin.com/in/gowthami-mahendran/" target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i> LinkedIn
+      </a>
+      <button class="btn" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle color theme">
+        <i class="fa fa-moon-o"></i> Dark
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="main">
+
+  <!-- HERO / ABOUT -->
+  <div class="hero" id="about">
+    <div>
+      <h1>Postdoctoral researcher in <span style="color:var(--accent);">hydrocephalus</span> and multi-omics regulation.</h1>
+      <p class="headline">
+        I’m a Postdoctoral Researcher at the Hydrocephalus Research Center, Indiana University (Indianapolis), studying phosphoproteome remodeling and
+        ion channel regulation (TRPV4) in hydrocephalus. I earned my Ph.D. in Chemistry & Biochemistry from the University of Notre Dame (May 2024),
+        where I investigated gene expression changes in Miller-Dieker Syndrome and the potential involvement of human METTL16.
+      </p>
+
+      <div class="chips" aria-label="Core focus areas">
+        <span class="chip g"><i class="fa fa-heartbeat"></i> Hydrocephalus</span>
+        <span class="chip b"><i class="fa fa-flask"></i> Phosphoproteomics</span>
+        <span class="chip p"><i class="fa fa-bolt"></i> TRPV4 / AMPK</span>
+        <span class="chip"><i class="fa fa-database"></i> RNA-seq</span>
+        <span class="chip"><i class="fa fa-code"></i> Multi-omics</span>
+      </div>
+
+      <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn primary" href="mailto:gmahendr@iu.edu"><i class="fa fa-envelope"></i>Email</a>
+        <a class="btn" href="#publications"><i class="fa fa-file-text-o"></i>Publications</a>
+        <a class="btn" href="#presentations"><i class="fa fa-microphone"></i>Talks</a>
+      </div>
+
+      <p class="muted2" style="margin-top:12px;">
+        Indianapolis, IN • (574) 386 2746 • <a href="mailto:gmahendr@iu.edu">gmahendr@iu.edu</a>
+      </p>
+    </div>
+
+    <div class="contact-card" aria-label="Quick contact">
+      <h3>Quick links</h3>
+
+      <div class="contact-item">
+        <i class="fa fa-map-marker"></i>
+        <div>
+          <div class="label">Location</div>
+          <div class="value">Indianapolis, IN</div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa fa-envelope"></i>
+        <div>
+          <div class="label">Email</div>
+          <div class="value"><a href="mailto:gmahendr@iu.edu">gmahendr@iu.edu</a></div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa fa-phone"></i>
+        <div>
+          <div class="label">Phone</div>
+          <div class="value">(574) 386 2746</div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa fa-linkedin"></i>
+        <div>
+          <div class="label">LinkedIn</div>
+          <div class="value"><a href="https://linkedin.com/in/gowthami-mahendran/" target="_blank" rel="noopener">linkedin.com/in/gowthami-mahendran</a></div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa fa-graduation-cap"></i>
+        <div>
+          <div class="label">Education</div>
+          <div class="value">Ph.D., Notre Dame (May 2024)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-title">
+      <div>
+        <h2>Education</h2>
+        <p>Degrees and dissertation titles</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card span-6">
+        <h3><i class="fa fa-university"></i> University of Notre Dame</h3>
+        <p><b>Ph.D., Department of Chemistry and Biochemistry</b> • May 2024 • GPA: 3.75</p>
+        <p class="muted" style="margin-top:8px;">
+          <b>Dissertation:</b> Unraveling Gene Expression Changes in Miller-Dieker Syndrome and Investigating the Potential Involvement of Human METTL16 in Disease Progression
+          <br><span class="muted2"><b>Advisor:</b> Dr. Jessica A. Brown</span>
+        </p>
+      </div>
+
+      <div class="card span-6">
+        <h3><i class="fa fa-university"></i> University of Colombo</h3>
+        <p><b>B.Sc. (Hons), Department of Chemistry</b> • Dec 2017 • GPA: 3.65 • Top of the class</p>
+        <p class="muted" style="margin-top:8px;">
+          <b>Dissertation:</b> Detection of phosphorylation of <i>Setaria digitata</i> novel protein SdNP
+          <br><span class="muted2"><b>Advisor:</b> Dr. Gayathri N. Silva</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH EXPERIENCE -->
+  <section id="research">
+    <div class="section-title">
+      <div>
+        <h2>Research experience</h2>
+        <p>Current postdoc and prior multi-omics/RNA biology research</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="role">
+        <div class="when">Jul 2024 – Present</div>
+        <div class="what">
+          <div class="title">Post-Doctoral Researcher</div>
+          <div class="org">Hydrocephalus Research Center, Indiana University (Indianapolis) • Dr. Bonnie L. Blazer-Yost</div>
+          <div class="bullets">
+            <ul>
+              <li>Identifying biomarker genes for non-invasive treatment of hydrocephalus</li>
+              <li>Investigating mechanistic regulation of TRPV4 and potential involvement in hydrocephalus progression</li>
+              <li>Using mass spectrometry to analyze phosphoprotein expression changes in hydrocephalus</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="when">Jul 2021 – May 2024</div>
+        <div class="what">
+          <div class="title">Graduate Research Assistant</div>
+          <div class="org">University of Notre Dame • Dept. of Chemistry & Biochemistry • Dr. Jessica A. Brown</div>
+          <div class="bullets">
+            <ul>
+              <li>Identified target genes for treatment of Miller-Dieker syndrome (MDS)</li>
+              <li>Used RNA-seq and tandem mass spectrometry to study MDS pathology at transcriptional and translational levels (in vitro)</li>
+              <li>Determined alternative splicing variants in MDS disease condition</li>
+              <li>Analyzed METTL16 binding partners and potential involvement in translational regulation</li>
+              <li>Studied locked nucleic acid interaction with MALAT1 triple helix and impact in cancer biology</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="when">Aug 2019 – Jun 2021</div>
+        <div class="what">
+          <div class="title">Graduate Research Assistant</div>
+          <div class="org">University of Notre Dame • Dept. of Chemistry & Biochemistry • Dr. Margaret A. Schwarz</div>
+          <div class="bullets">
+            <ul>
+              <li>Determined methionine requirements necessary to buffer oxidative stress</li>
+              <li>Studied one-carbon metabolism and methionine availability in premature lung development (in vivo mouse models + in vitro)</li>
+              <li>Explored correlation between AIMP-1 mitochondrial energetics and LVNC in vivo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="when">Jan 2018 – Jan 2019</div>
+        <div class="what">
+          <div class="title">Undergraduate Research Assistant</div>
+          <div class="org">University of Colombo • Department of Chemistry</div>
+          <div class="bullets">
+            <ul>
+              <li>Characterized <i>Setaria digitata</i> novel protein SdNP for clade-specific drug design against Elephantiasis</li>
+              <li>Performed in vitro structural and functional characterization of SdNP</li>
+              <li>Contributed to structural determination of SdNP using crystallography studies</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEACHING EXPERIENCE -->
+  <section id="teaching">
+    <div class="section-title">
+      <div>
+        <h2>Teaching experience</h2>
+        <p>Teaching assistantships, mentoring, and instruction</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="role">
+        <div class="when">Aug 2023 – Dec 2023</div>
+        <div class="what">
+          <div class="title">Graduate Teaching Assistant (Graduate course)</div>
+          <div class="org">University of Notre Dame • Department of Chemistry</div>
+          <div class="bullets"><ul><li>Assisted with course materials and quiz preparation, proctored quizzes, and graded assignments/quizzes.</li></ul></div>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="when">Aug 2022 – Present</div>
+        <div class="what">
+          <div class="title">Undergraduate Research Mentor</div>
+          <div class="org">University of Notre Dame • Department of Chemistry & Biochemistry</div>
+          <div class="bullets"><ul><li>Trained cell culture techniques and supported projects examining translation alterations in Miller-Dieker condition.</li></ul></div>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="when">Aug 2019 – May 2021</div>
+        <div class="what">
+          <div class="title">Graduate Teaching Assistant (Undergraduate courses)</div>
+          <div class="org">University of Notre Dame • Department of Chemistry</div>
+          <div class="bullets"><ul><li>Led practical sessions for General and Inorganic Chemistry labs; assisted with grading final examinations.</li></ul></div>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="when">Mar 2018 – Mar 2019</div>
+        <div class="what">
+          <div class="title">Assistant Professor (Undergraduate courses)</div>
+          <div class="org">University of Colombo • Department of Chemistry</div>
+          <div class="bullets"><ul><li>Conducted Biochemistry/Molecular Biology lab sessions; delivered chemistry lectures and tutorials for freshman/sophomore cohorts.</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="section-title">
+      <div>
+        <h2>Publications</h2>
+        <p>Peer-reviewed articles and manuscripts in preparation</p>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="num">1</div>
+      <div class="body">
+        <div class="title">Understanding the Molecular Basis of Miller-Dieker Syndrome</div>
+        <div class="venue">International Journal of Molecular Sciences (Rare Diseases and Neuroscience special issue), 2025 • DOI: 10.3390/ijms26157375</div>
+        <div class="links">
+          <a href="https://doi.org/10.3390/ijms26157375" target="_blank" rel="noopener"><i class="fa fa-external-link"></i>DOI</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="num">2</div>
+      <div class="body">
+        <div class="title">Unlocking the Epigenetic Code: New Insights into Triple-Negative Breast Cancer (TNBC)</div>
+        <div class="venue">Frontiers in Oncology, 2024 • DOI: 10.3389/fonc.2024.149995</div>
+        <div class="links">
+          <a href="https://doi.org/10.3389/fonc.2024.149995" target="_blank" rel="noopener"><i class="fa fa-external-link"></i>DOI</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="num">3</div>
+      <div class="body">
+        <div class="title">Multi-omics approach reveals genes and pathways affected in Miller-Dieker Syndrome</div>
+        <div class="venue">Molecular Neurobiology, 2024 • DOI: 10.1007/s12035-024-04532-7</div>
+        <div class="links">
+          <a href="https://doi.org/10.1007/s12035-024-04532-7" target="_blank" rel="noopener"><i class="fa fa-external-link"></i>DOI</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="num">4</div>
+      <div class="body">
+        <div class="title">Locked Nucleic Acid Oligonucleotides Facilitate RNA•LNA-RNA Triple Helix Formation and Reduce MALAT1 Levels</div>
+        <div class="venue">International Journal of Molecular Sciences, 2024 • DOI: 10.3390/ijms2503163</div>
+        <div class="links">
+          <a href="https://doi.org/10.3390/ijms2503163" target="_blank" rel="noopener"><i class="fa fa-external-link"></i>DOI</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="num">5</div>
+      <div class="body">
+        <div class="title">Emerging Hallmarks of Mitochondrial Biochemistry in Cardiac Trabecular Morphogenesis and Left Ventricular Noncompaction (LVNC)</div>
+        <div class="venue">IntechOpen, 2022 • DOI: http://dx.doi.org/10.5772/intechopen.109098</div>
+        <div class="links">
+          <a href="http://dx.doi.org/10.5772/intechopen.109098" target="_blank" rel="noopener"><i class="fa fa-external-link"></i>DOI</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="num">6</div>
+      <div class="body">
+        <div class="title">Key players in realm of regulatory RNA</div>
+        <div class="venue">Biochem Biophys Rep, 2022 • 30:101276</div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="num">7</div>
+      <div class="body">
+        <div class="title">Functional analysis of SdNP; A protein of unknown function in Setaria Digitata (Conference paper)</div>
+        <div class="venue">KDU-IRC 2019 • Link: ir.kdu.ac.lk/handle/345/2349</div>
+        <div class="links">
+          <a href="http://ir.kdu.ac.lk/handle/345/2349" target="_blank" rel="noopener"><i class="fa fa-external-link"></i>Link</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="num">8</div>
+      <div class="body">
+        <div class="title">TRPV4 Activation Remodels Choroid Plexus Tight Junctions through AMPK-Dependent Phosphorylation Networks</div>
+        <div class="venue">Under preparation • Mahendran, Blazer-Yost</div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="num">9</div>
+      <div class="body">
+        <div class="title">Reactive oxygen species activities in the Choroid Plexus: When the helpers become the attackers</div>
+        <div class="venue">Under preparation • Audu, Mahendran, Reed, Blazer-Yost</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESENTATIONS -->
+  <section id="presentations">
+    <div class="section-title">
+      <div>
+        <h2>Posters & presentations</h2>
+        <p>Selected talks and posters (full list can be expanded)</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <ul>
+        <li><b>Aug 2025 (Flash Talk & Poster):</b> “Phosphoproteomic Insights into Human Choroid Plexus Epithelial Cells: Towards Targeted Therapies for Hydrocephalus”, 15th International Symposium on Proteomics in the Life Sciences, Boston, MA.</li>
+        <li><b>Jul 2025 (Oral):</b> “Phosphoproteomic Insights into Human Choroid Plexus Epithelial Cells: Towards Targeted Therapies for Hydrocephalus”, Indianapolis, IN.</li>
+        <li><b>May 2024 (Oral):</b> “Multi-omics analyses uncover gene expression alterations and the contribution of human methyltransferase-like protein 16 in Miller-Dieker Syndrome”, Plymouth, IN.</li>
+        <li><b>Mar 2024 (Poster):</b> “Transcriptomics and Proteomics Analyses Uncover Potential Candidates to Treat Miller-Dieker Syndrome”, ASBMB 2024, San Antonio, TX.</li>
+        <li><b>Oct 2023 (Poster):</b> Rustbelt RNA Meeting 2023, East Lansing, MI.</li>
+      </ul>
+      <p class="muted2" style="margin-top:10px;">
+        Tip: You can duplicate the list items above to include the complete set from the CV.
+      </p>
+    </div>
+  </section>
+
+  <!-- INVITED TALKS -->
+  <section id="talks">
+    <div class="section-title">
+      <div>
+        <h2>Invited talks</h2>
+        <p>Podcast and guest lectures</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card span-6">
+        <h3><i class="fa fa-youtube-play"></i> Podcast guest (PFFP Program, IU Graduate School)</h3>
+        <p><b>June 2025</b> • Topic: Career Development and Academic Preparation</p>
+        <p class="muted" style="margin-top:8px;">
+          <a href="https://www.youtube.com/watch?v=PUrxpAo8bAo&ab_channel=IUGraduateSchoolIndianapolis" target="_blank" rel="noopener">
+            Watch on YouTube <i class="fa fa-external-link"></i>
+          </a>
+        </p>
+      </div>
+
+      <div class="card span-6">
+        <h3><i class="fa fa-graduation-cap"></i> Guest Lecturer (Notre Dame)</h3>
+        <p><b>March 2022</b> • Nucleic Acids in Medicine & Biotechnology (Graduate Course)</p>
+        <p class="muted" style="margin-top:8px;">Topic: Ribozymes and Riboswitches: Therapeutic Applications</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards">
+    <div class="section-title">
+      <div>
+        <h2>Awards & recognitions</h2>
+        <p>Academic excellence, teaching, and presentation awards</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <ul class="cols-2">
+        <li>Shaheen 3-Minute Thesis Finalist (3-MT), College of Science, Notre Dame (2024)</li>
+        <li>Teaching Commendation (Molecular Biology graduate course, General Chemistry I & II), Notre Dame (2024)</li>
+        <li>Best platform presentation award (KDU-IRC, Sri Lanka) — SdNP (2019)</li>
+        <li>Professor Stanley Wijesundera Memorial Gold Medal (Biochemistry & Molecular Biology), University of Colombo (2018)</li>
+        <li>Gulamhussein A.J. Noorbhai Gold Medal (Biochemistry & Molecular Biology), University of Colombo (2018)</li>
+        <li>Studentship in Biological Sciences, University of Colombo (2014–2017)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SERVICE -->
+  <section id="service">
+    <div class="section-title">
+      <div>
+        <h2>Service & affiliations</h2>
+        <p>Professional affiliations, peer review, grants, and community involvement</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card span-6">
+        <h3><i class="fa fa-users"></i> Professional affiliations & academic service</h3>
+        <ul>
+          <li>Postdoctoral Member, American Physiological Society (APS) (Oct 2025–present)</li>
+          <li>Participant, Faculty and Staff Mentoring Dialogues (NRMN) (Sep 2025–present)</li>
+          <li>Peer reviewer for MDPI and TJEM journals (Mar 2025–present)</li>
+          <li>CTSI Grant reviewer (Feb 2025–present)</li>
+          <li>Member, HANDS (Hydrocephalus Association Network for Discovery Science) (Aug 2024–present)</li>
+          <li>Member, Notre Dame Club of Indianapolis (iNDy) (Dec 2024–present)</li>
+          <li>Student member, AISES (Apr 2020–present)</li>
+        </ul>
+      </div>
+
+      <div class="card span-6">
+        <h3><i class="fa fa-handshake-o"></i> Workshops & voluntary activities (selected)</h3>
+        <ul>
+          <li>Volunteer, Jaguar 5K Run (2025)</li>
+          <li>Judge, Stark Summer Science Symposium (2025)</li>
+          <li>Senior section judge, Hoosier Science and Engineering Fair (2025)</li>
+          <li>Poster session judge, COSE JAM (2024, 2023, 2022)</li>
+          <li>Graduate Recruitment Host, Notre Dame (2024, 2023)</li>
+          <li>Annual North American Mass Spectrometry Summer School (2021)</li>
+        </ul>
+        <p class="muted2" style="margin-top:10px;">
+          You can extend this list with the full set from the CV.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-title">
+      <div>
+        <h2>Technical skills</h2>
+        <p>Wet lab, omics, and computational tools</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card span-6">
+        <h3><i class="fa fa-flask"></i> Biochemistry & molecular biology</h3>
+        <ul>
+          <li>Southern/Northern/Western blot; ELISA; immunoprecipitation (IP)</li>
+          <li>Cell culture (human/bacterial), neuronal cell culturing (iPSCs)</li>
+          <li>Flow cytometry; enzyme kinetic assays; cell-based assays</li>
+          <li>Protein expression & purification (ÄKTA) and characterization</li>
+          <li>Transfection (plasmid/siRNA); IF, IHC, ICC, histology</li>
+          <li>RNA extraction, primer design, cDNA synthesis, qPCR/RT-qPCR</li>
+          <li>RNA-seq / transcriptomics; BSL-2 techniques</li>
+          <li>Animal handling (mouse/rat tissue harvest, blood drawing)</li>
+        </ul>
+      </div>
+
+      <div class="card span-6">
+        <h3><i class="fa fa-code"></i> Computational tools</h3>
+        <ul>
+          <li>RStudio; GraphPad Prism; Microsoft Office</li>
+          <li>Bioinformatics-related tools: BioEdit, ClustalX</li>
+          <li>Basic computer-aided drug design tools: Mega 6, Rasmol, Abalone, Hyperchem, Winmopac, Hex</li>
+          <li>Analyzing complex scientific data with computational software</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <div class="section-title">
+      <div>
+        <h2>Certificates</h2>
+        <p>Teaching and professional development</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <ul>
+        <li>Preparing for Future Faculty and Professionals (PFFP), IU Graduate School Indianapolis (2025)</li>
+        <li>Advanced Teaching Scholar Teaching certificate, Kaneb Center, Notre Dame (2024)</li>
+        <li>Striving for Excellence Teaching Certificate, Kaneb Center, Notre Dame (2023)</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="yearNow"></span> Gowthami Mahendran • Theme toggle + accessible navigation.
+  </footer>
+</div>
+
+<script>
+  // Theme: saved preference > system preference
+  function applyTheme(theme){
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+
+    const btn = document.getElementById("themeBtn");
+    if(btn){
+      btn.innerHTML = (theme === "dark")
+        ? '<i class="fa fa-sun-o"></i> Light'
+        : '<i class="fa fa-moon-o"></i> Dark';
+    }
+  }
+
+  function toggleTheme(){
+    const current = document.documentElement.getAttribute("data-theme");
+    const next = (current === "dark") ? "light" : "dark";
+    applyTheme(next);
+  }
+
+  (function initTheme(){
+    const saved = localStorage.getItem("theme");
+    if(saved){
+      applyTheme(saved);
+      return;
+    }
+    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    applyTheme(prefersDark ? "dark" : "light");
+  })();
+
+  document.getElementById("yearNow").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
